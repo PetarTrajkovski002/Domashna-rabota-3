@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Погоди го зборот</title>
+    </head>
+    <body>
+        
+        <script language="JavaScript">
+            var zbor;
+            var obidi=1;
+            var recnik = new Array("јаболко","портокал","банана","овошје","зеленчук","пиперка","домат","компир","зелка","мачка","куче");
+            var poz=Math.floor(Math.floor(Math.random()*11));
+            var z=recnik[poz]; //zbor koj treba da se pogodi
+            var pom=z;
+            var dzvezdi=""
+            for(var i=0; i<z.length; i++)
+            {
+                if(i<3)
+                {
+                    dzvezdi=dzvezdi+z[i];
+                }
+                else
+                {
+                    dzvezdi=dzvezdi+"*"
+                }
+            }
+            
+            var proba;
+            while(obidi<=5)
+            {
+                proba=window.prompt("Обид "+obidi+", Помош: "+dzvezdi+"\nВнеси ги "+(z.length-3)+"-те букви споено");
+                j=0;
+                var p=0;
+                for(var i=3; i<z.length; i++,j++)
+                {
+                    if(pom[i]!=proba[j])
+                    {
+                        p=1;
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                if(p==0)
+                {
+                    
+                    break;
+                }
+            obidi++
+            }
+            if(p==1)
+            {
+                window.alert("Не го погодивте зборот");
+                
+            }
+            else
+            {
+                window.alert("Го погодивте зборот");
+                
+            }
+        </script>
+        
+        <button onclick="window.location.reload()">Кликни тука за да играш уште еднаш</button>
+        
+    </body>
+</html>
